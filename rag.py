@@ -1,4 +1,4 @@
-#Lane Chainを使ったPAGElyzabを用いて試してみた
+#LangChainを使ったPAGElyzabを用いて試してみた
 #https://note.com/alexweberk/n/n3cffc010e9e9
 #https://nynupe! readthedocs, 10/ja/latest/rag himi
 #https://unstructuree-ie github.io/unstructured/bricks himitoartition potx
@@ -89,7 +89,7 @@ def initialize(dbpath, commondir, privatedir):
     for loader in loaders_list:
         # Use UnstructuredFileLoader to load each file
         # pip uninstall python-magic
-        # pip install python-magic-bin=0.4.14
+        # pip install python-magic-bin==0.4.14
         # pip install python-pptx
         docs = loader.load()
         documents.extend(docs)

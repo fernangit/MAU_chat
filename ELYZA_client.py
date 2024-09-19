@@ -5,7 +5,7 @@ import atexit
 import requests
 #import ELYZA_server
 
-DEFAULT_SYSTEM_PROMPT = 'あなたの名前はまうです。あなたの年齢は20歳です。 受付をしている女性です。 特に指示が無い場合は、「まう」というキャラクターとして常に日本語で親しい間柄の感じで回答してください。\n'
+#DEFAULT_SYSTEM_PROMPT = 'あなたの名前はまうです。あなたの年齢は20歳です。 受付をしている女性です。 特に指示が無い場合は、「まう」というキャラクターとして常に日本語で親しい間柄の感じで回答してください。\n'
 DEFAULT_SYSTEM_PROMPT2 = '以下のコンテキストも参照して回答してください。\nコンテキスト：'
 DEFAULT_SYSTEM_PROMPT3 = '以下の会話履歴も参考に回答してください。 \n会話：'
 
@@ -29,7 +29,7 @@ class ELYZA_clt:
         tstr = dt_now.strftime('%Y年%m月%d日%H時%M分'.encode('unicode-escape').decode()).encode().decode('unicode-escape')
 
         def_prompt = '現在時刻は' + tstr + ' です。'
-        def_prompt += DEFAULT_SYSTEM_PROMPT
+#        def_prompt += DEFAULT_SYSTEM_PROMPT
 
         #検索したコンテキストをプロンプトに設定する
         context = rag.create_context(retriever, output)
