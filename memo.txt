@@ -1,3 +1,12 @@
-pyinstaller MAU_chat.py --onefile --noconsole --add-data "C:\work\win_py_Greeting\venv\Lib\site-packages\unstructured\nlp\english-words.txt;unstructured/nlp" --hidden-import ELYZA_client --optimize 1
+動かすには
+win_py_GreetingからELYZA_client.py、mem.py、rag.pyをコピー
 
+exe化するには
+pyinstaller MAU_chat.py --onefile --noconsole --add-data "C:\work\win_py_Greeting\venv\Lib\site-packages\unstructured\nlp\english-words.txt;unstructured/nlp" --hidden-import ELYZA_client --optimize 1
+※仮想環境にライブラリをインストールしておく
+
+exeの実行には
+intfloat¥multilingual-e5-largeに
+C:\Users\morio\.cache\huggingface\hub\models--intfloat--multilingual-e5-large\snapshots\
+から、モデルをコピーしておく
 C:\Windows\System32\libomp140.x86_64.dllをMAU_chat.exeと同じフォルダにコピー
