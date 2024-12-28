@@ -1,9 +1,10 @@
 import tkinter as tk
 from tkinter import Frame
 import customtkinter as ctk
-import threading
-import importlib
+#import threading
 from PIL import Image, ImageTk, ImageSequence
+import ELYZA_client
+import killProcess
 
 class ChatApp:
     def __init__(self, root):
@@ -12,8 +13,12 @@ class ChatApp:
         self.root.geometry("300x500")
 
         self.show_loading_screen()
-        threading.Thread(target=self.initialize_client).start()
+        # threading.Thread(target=self.initialize_client).start()
+        self.initialize_client()
         self.resize_timer = None
+
+        # スプラッシュ画面の終了
+        killProcess.kill("watchProcess.exe")
 
     def show_loading_screen(self):
         """起動中の画面を表示"""
@@ -27,7 +32,7 @@ class ChatApp:
 
     def initialize_client(self):
         """ELYZA_cltのインスタンスを作成"""
-        self.ELYZA_clt = importlib.import_module('ELYZA_client').ELYZA_clt()
+        self.ELYZA_clt = ELYZA_client.ELYZA_clt()
         self.loading_window.destroy()
         self.setup_gui()
 

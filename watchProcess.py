@@ -94,14 +94,12 @@ q = queue.Queue()
 popup_thread = threading.Thread(target=display_splash, args=(q,))
 popup_thread.start()
 
-# プロセス監視を実行
-watch_process("MAU_chat_newGUI.exe")
+# # プロセス監視を実行
+# watch_process("MAU_chat_newGUI.exe")
 
-# tkinterのメインループを終了
-time.sleep(30) # 30秒待機
-q.put("quit") # メインスレッドから終了要求を送信
-# ポップアップスレッドが終了するのを待つ
-popup_thread.join()
-print("プログラムを終了します")
-
-            
+# # tkinterのメインループを終了
+# time.sleep(30) # 30秒待機
+# q.put("quit") # メインスレッドから終了要求を送信
+# # ポップアップスレッドが終了するのを待つ
+# popup_thread.join()
+# print("プログラムを終了します")

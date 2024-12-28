@@ -1,0 +1,3 @@
+※exeにする際、リンクできないので動的Importは使わないこと（Importlibは使わない）
+
+pyinstaller MAU_chat_newGUI.py --onefile --noconsole --clean --add-data "E:\work\MAU_chat\venv\Lib\site-packages\unstructured\nlp\english-words.txt;unstructured/nlp" --add-data "E:\work\MAU_chat\venv\Lib\site-packages\emoji\unicode_codes\emoji.json;emoji/unicode_codes" --hidden-import "pydantic.deprecated.decorator" --collect-all chromadb

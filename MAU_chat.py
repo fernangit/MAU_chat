@@ -1,8 +1,9 @@
 import tkinter as tk
 from tkinter import Frame, Label, messagebox, Text
-import threading
-import importlib
+#import threading
 from PIL import Image, ImageTk, ImageSequence
+import ELYZA_client
+import killProcess
 
 class ChatApp:
     def __init__(self, root):
@@ -24,11 +25,15 @@ class ChatApp:
         self.loading_label.pack(expand=True)
 
         # スレッドを作成してELYZA_cltのインスタンスを作成
-        threading.Thread(target=self.initialize_client).start()
+        # threading.Thread(target=self.initialize_client).start()
+        self.initialize_client()
+
+        # スプラッシュ画面の終了
+        killProcess.kill("watchProcess.exe")
 
     def initialize_client(self):
         # ELYZA_cltのインスタンスを作成
-        self.ELYZA_clt = importlib.import_module('ELYZA_client').ELYZA_clt()
+        self.ELYZA_clt = ELYZA_client.ELYZA_clt()
 
         # 起動中の画面を閉じる
         self.loading_window.destroy()
