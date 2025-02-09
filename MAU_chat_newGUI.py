@@ -3,7 +3,7 @@ from tkinter import Frame
 import customtkinter as ctk
 #import threading
 from PIL import Image, ImageTk, ImageSequence
-import ELYZA_client
+import chat_client
 import killProcess
 
 class ChatApp:
@@ -31,8 +31,8 @@ class ChatApp:
         self.loading_label.pack(expand=True)
 
     def initialize_client(self):
-        """ELYZA_cltのインスタンスを作成"""
-        self.ELYZA_clt = ELYZA_client.ELYZA_clt()
+        """chat_cltのインスタンスを作成"""
+        self.chat_clt = chat_client.chat_clt()
         self.loading_window.destroy()
         self.setup_gui()
 
@@ -193,7 +193,7 @@ class ChatApp:
     def get_bot_response(self, message):
         """ボットの応答を取得"""
         self.url = 'http://' + self.ip_address + ':' + self.port_number + '/Utterance'
-        response = self.ELYZA_clt.response(self.url, message)
+        response = self.chat_clt.response(self.url, message)
         return response
 
 if __name__ == '__main__':
