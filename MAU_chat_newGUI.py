@@ -13,7 +13,6 @@ class ChatApp:
         self.root.geometry("300x500")
 
         self.show_loading_screen()
-        # threading.Thread(target=self.initialize_client).start()
         self.initialize_client()
         self.resize_timer = None
 
@@ -22,11 +21,16 @@ class ChatApp:
 
     def show_loading_screen(self):
         """起動中の画面を表示"""
+        self.create_loading_window()
+        self.create_loading_label()
+
+    def create_loading_window(self):
         self.loading_window = tk.Toplevel(self.root)
         self.loading_window.title('召喚')
         self.loading_window.attributes('-topmost', True)
         self.loading_window.geometry('280x280')
 
+    def create_loading_label(self):
         self.loading_label = tk.Label(self.loading_window, text='召喚中．．．\n数分かかることがあります')
         self.loading_label.pack(expand=True)
 
@@ -186,7 +190,7 @@ class ChatApp:
         frame = ctk.CTkFrame(self.chat_frame, corner_radius=10)
         frame.pack(padx=10, pady=2, anchor=anchor)
         label = ctk.CTkLabel(frame, text=f'{sender}: {message}', fg_color=color, text_color="white",
-                             justify='left', anchor=ctk.W, corner_radius=10, wraplength=self.root.winfo_width() - 200)
+                    justify='left', anchor=ctk.W, corner_radius=10, wraplength=self.root.winfo_width() - 200)
         label.pack(padx=10, pady=5)
         label_list.append(label)
 
